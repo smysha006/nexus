@@ -1,6 +1,7 @@
 import '@vly-ai/integrations';
 import { Toaster } from "@/components/ui/sonner";
 import { RequireAuth } from "@/components/RequireAuth";
+import { AppShell } from "@/components/AppShell";
 import { VlyToolbar } from "../vly-toolbar-readonly.tsx";
 import { ConvexAuthProvider } from "@convex-dev/auth/react";
 import { ConvexReactClient } from "convex/react";
@@ -12,7 +13,16 @@ import "./index.css";
 // Lazy load route components for better code splitting
 const Landing = lazy(() => import("./pages/Landing.tsx"));
 const AuthPage = lazy(() => import("./pages/Auth.tsx"));
+const Onboarding = lazy(() => import("./pages/Onboarding.tsx"));
 const Dashboard = lazy(() => import("./pages/Dashboard.tsx"));
+const Purchases = lazy(() => import("./pages/Purchases.tsx"));
+const PurchaseDetail = lazy(() => import("./pages/PurchaseDetail.tsx"));
+const Scan = lazy(() => import("./pages/Scan.tsx"));
+const Warranties = lazy(() => import("./pages/Warranties.tsx"));
+const Returns = lazy(() => import("./pages/Returns.tsx"));
+const Claims = lazy(() => import("./pages/Claims.tsx"));
+const Insights = lazy(() => import("./pages/Insights.tsx"));
+const Assistant = lazy(() => import("./pages/Assistant.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 
 // Simple loading fallback for route transitions
@@ -125,13 +135,23 @@ createRoot(document.getElementById("root")!).render(
                 element={<AuthPage redirectAfterAuth="/dashboard" />}
               />
               <Route
-                path="/dashboard"
                 element={
                   <RequireAuth>
-                    <Dashboard />
+                    <AppShell />
                   </RequireAuth>
                 }
-              />
+              >
+                <Route path="/onboarding" element={<Onboarding />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/purchases" element={<Purchases />} />
+                <Route path="/purchases/:id" element={<PurchaseDetail />} />
+                <Route path="/scan" element={<Scan />} />
+                <Route path="/warranties" element={<Warranties />} />
+                <Route path="/returns" element={<Returns />} />
+                <Route path="/claims" element={<Claims />} />
+                <Route path="/insights" element={<Insights />} />
+                <Route path="/assistant" element={<Assistant />} />
+              </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
