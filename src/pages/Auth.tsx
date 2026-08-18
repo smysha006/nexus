@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/input-otp";
 import { NexusMark } from "@/components/NexusMark";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { CurrencySelect } from "@/components/CurrencySelect";
 
 import { useAuth } from "@/hooks/use-auth";
 import { ArrowRight, Loader2, Lock, Mail, Sparkles, UserX } from "lucide-react";
@@ -108,7 +109,8 @@ function Auth({ redirectAfterAuth }: AuthProps = {}) {
         <NexusMark size={26} />
         Nexus OS
       </button>
-      <div className="absolute right-5 top-5">
+      <div className="absolute right-5 top-5 flex items-center gap-1">
+        <CurrencySelect />
         <ThemeToggle />
       </div>
 

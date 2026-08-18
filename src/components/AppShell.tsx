@@ -3,6 +3,8 @@ import { NexusMark } from "@/components/NexusMark";
 import { GlobalSearch } from "@/components/GlobalSearch";
 import { NotificationsPopover } from "@/components/NotificationsPopover";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { CurrencySelect } from "@/components/CurrencySelect";
+import { CURRENCY_META, useCurrency } from "@/lib/currency";
 import { AssistantWidget } from "@/components/AssistantWidget";
 import { Button } from "@/components/ui/button";
 import {
@@ -16,10 +18,15 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
   BarChart3,
+  Check,
+  Coins,
   FileText,
   LayoutDashboard,
   LogOut,
@@ -44,6 +51,7 @@ const NAV = [
 
 export function AppShell() {
   const { user, signOut, isLoading } = useAuth();
+  const { currency, setCurrency } = useCurrency();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -104,6 +112,7 @@ export function AppShell() {
           </nav>
 
           <div className="ml-auto flex items-center gap-2">
+            <CurrencySelect />
             <ThemeToggle />
             <GlobalSearch />
             <NotificationsPopover />
@@ -149,6 +158,28 @@ export function AppShell() {
                   <Sparkles className="mr-2 size-4" />
                   AI Assistant
                 </DropdownMenuItem>
+                <DropdownMenuSub>
+                  <DropdownMenuSubTrigger className="cursor-pointer">
+                    <Coins className="mr-2 size-4" />
+                    Currency
+                    <span className="ml-auto text-xs font-medium text-muted-foreground">
+                      {currency}
+                    </span>
+                  </DropdownMenuSubTrigger>
+                  <DropdownMenuSubContent>
+                    {CURRENCY_META.map((c) => (
+                      <DropdownMenuItem
+                        key={c.code}
+                        onClick={() => setCurrency(c.code)}
+                        className="cursor-pointer"
+                      >
+                        <span className="w-6 text-sm font-semibold tabular-nums">{c.symbol}</span>
+                        <span className="flex-1">{c.code}</span>
+                        {c.code === currency && <Check className="size-4 text-primary" />}
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuSubContent>
+                </DropdownMenuSub>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
                   onClick={handleSignOut}

@@ -133,10 +133,22 @@ export function isPriceDrop(
   );
 }
 
-export function fmtMoney(n: number): string {
-  return new Intl.NumberFormat("en-US", {
+export const CURRENCY_META = [
+  { code: "INR", symbol: "₹", name: "Indian Rupee", locale: "en-IN" },
+  { code: "USD", symbol: "$", name: "US Dollar", locale: "en-US" },
+  { code: "EUR", symbol: "€", name: "Euro", locale: "en-IE" },
+  { code: "GBP", symbol: "£", name: "British Pound", locale: "en-GB" },
+  { code: "AED", symbol: "د.إ", name: "UAE Dirham", locale: "ar-AE-u-nu-latn" },
+  { code: "SGD", symbol: "S$", name: "Singapore Dollar", locale: "en-SG" },
+] as const;
+
+export type CurrencyCode = (typeof CURRENCY_META)[number]["code"];
+
+export function fmtMoney(n: number, currency: string = "USD"): string {
+  const meta = CURRENCY_META.find((c) => c.code === currency);
+  return new Intl.NumberFormat(meta?.locale ?? "en-US", {
     style: "currency",
-    currency: "USD",
+    currency,
     maximumFractionDigits: n % 1 === 0 ? 0 : 2,
   }).format(n);
 }

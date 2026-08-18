@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { CATEGORIES } from "@/lib/catalog";
+import { CURRENCY_META, useCurrency } from "@/lib/currency";
 import { cn } from "@/lib/utils";
 import type { Purchase } from "@/types/purchase";
 
@@ -75,6 +76,7 @@ export function PurchaseForm({
   onCancel?: () => void;
 }) {
   const upsert = useMutation(api.purchases.upsert);
+  const { currency } = useCurrency();
   const [values, setValues] = useState<PurchaseFormValues>({
     name: initial?.name ?? "",
     brand: initial?.brand ?? "",
@@ -206,7 +208,7 @@ export function PurchaseForm({
             maxLength={4}
           />
         </Field>
-        <Field label="Price paid (USD)">
+        <Field label={`Price paid (${CURRENCY_META.find((c) => c.code === currency)?.symbol ?? currency})`}>
           <Input
             type="number"
             min={0}

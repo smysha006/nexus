@@ -22,7 +22,10 @@ import {
 import { Link } from "react-router";
 import { NexusMark } from "@/components/NexusMark";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { CurrencySelect } from "@/components/CurrencySelect";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
+import { fmtMoney } from "@/lib/format";
+import { useCurrency } from "@/lib/currency";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -123,12 +126,13 @@ const FEATURES = [
 ];
 
 const DEMO_PURCHASES = [
-  { emoji: "🎧", name: "WH-1000XM5", price: "$399", badge: "Return closes in 3 days", tone: "text-danger bg-danger/10 border-danger/20" },
-  { emoji: "💻", name: "MacBook Pro 14″", price: "$1,999", badge: "Warranty expiring", tone: "text-warning bg-warning/10 border-warning/20" },
-  { emoji: "⌚", name: "Apple Watch S9", price: "$429", badge: "Protected · Claim-ready", tone: "text-success bg-success/10 border-success/20" },
+  { emoji: "🎧", name: "WH-1000XM5", price: 399, badge: "Return closes in 3 days", tone: "text-danger bg-danger/10 border-danger/20" },
+  { emoji: "💻", name: "MacBook Pro 14″", price: 1999, badge: "Warranty expiring", tone: "text-warning bg-warning/10 border-warning/20" },
+  { emoji: "⌚", name: "Apple Watch S9", price: 429, badge: "Protected · Claim-ready", tone: "text-success bg-success/10 border-success/20" },
 ];
 
 export default function Landing() {
+  useCurrency();
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Ambient glow */}
@@ -149,6 +153,7 @@ export default function Landing() {
             <a href="#features" className="transition-colors hover:text-foreground">Features</a>
           </nav>
           <div className="flex items-center gap-2">
+            <CurrencySelect />
             <ThemeToggle />
             <Link to="/auth">
               <Button className="rounded-xl">
@@ -248,7 +253,7 @@ export default function Landing() {
                 </Badge>
               </div>
               <p className="mt-3 font-display text-4xl font-bold tabular-nums tracking-tight">
-                $<AnimatedNumber value={23876} />
+                <AnimatedNumber value={23876} format={fmtMoney} />
               </p>
               <div className="mt-5 space-y-3">
                 {DEMO_PURCHASES.map((p, i) => (
@@ -264,7 +269,7 @@ export default function Landing() {
                     </span>
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-medium">{p.name}</p>
-                      <p className="text-xs text-muted-foreground">{p.price}</p>
+                      <p className="text-xs text-muted-foreground">{fmtMoney(p.price)}</p>
                     </div>
                     <Badge variant="outline" className={`border ${p.tone}`}>
                       {p.badge}
@@ -460,8 +465,8 @@ export default function Landing() {
                   <Sparkles className="size-3.5" />
                 </span>
                 <p className="max-w-[85%] rounded-2xl rounded-tl-sm border border-border/70 bg-card px-4 py-2.5 text-sm leading-6 text-foreground">
-                  Your Sony A7 III camera holds the best estimated resale value (~$1,200, based on
-                  depreciation from $1,998). Want a listing draft?
+                  Your Sony A7 III camera holds the best estimated resale value (~{fmtMoney(1200)}, based on
+                  depreciation from {fmtMoney(1998)}). Want a listing draft?
                 </p>
               </div>
             </div>

@@ -4,10 +4,12 @@ import { HealthRing } from "@/components/HealthRing";
 import { ReturnBadge, WarrantyBadge } from "@/components/StatusBadges";
 import { categoryMeta } from "@/lib/catalog";
 import { fmtDate, fmtMoney, relativeDays } from "@/lib/format";
+import { useCurrency } from "@/lib/currency";
 import type { PurchaseSummary } from "@/types/purchase";
 import { TrendingDown } from "lucide-react";
 
 export function PurchaseCard({ p }: { p: PurchaseSummary }) {
+  useCurrency();
   const meta = categoryMeta(p.category);
   const Icon = meta.icon;
   const isSub = p.category === "Subscriptions";

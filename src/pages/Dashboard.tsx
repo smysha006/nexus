@@ -22,6 +22,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { fmtMoney, relativeDays } from "@/lib/format";
+import { useCurrency } from "@/lib/currency";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import type { NotificationKind } from "@/convex/notifications";
@@ -47,6 +48,7 @@ interface AttentionCard {
 }
 
 export default function Dashboard() {
+  useCurrency();
   const stats = useQuery(api.purchases.stats);
   const summary = useQuery(api.purchases.summary);
   const notifications = useQuery(api.notifications.list);

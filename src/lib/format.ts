@@ -1,4 +1,15 @@
-export { fmtDate, fmtMoney, DAY } from "@/convex/lib";
+export { fmtDate, DAY } from "@/convex/lib";
+
+import { formatMoney } from "./currency";
+
+/**
+ * Format an amount in the app-wide selected currency (symbol + locale).
+ * Reads the current currency from the global store, so components that call
+ * this should also call useCurrency() to re-render when the currency changes.
+ */
+export function fmtMoney(n: number): string {
+  return formatMoney(n);
+}
 
 export function plural(n: number, word: string): string {
   return `${n} ${word}${n === 1 ? "" : "s"}`;

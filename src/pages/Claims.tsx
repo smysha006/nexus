@@ -24,6 +24,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Skeleton } from "@/components/ui/skeleton";
 import { Textarea } from "@/components/ui/textarea";
 import { fmtDate, fmtMoney } from "@/lib/format";
+import { useCurrency } from "@/lib/currency";
 import { cn } from "@/lib/utils";
 
 function eligibilityMeta(eligibility: string) {
@@ -56,6 +57,7 @@ function eligibilityMeta(eligibility: string) {
 }
 
 export default function Claims() {
+  useCurrency();
   const claims = useQuery(api.claims.list);
   const purchases = useQuery(api.purchases.list);
   const create = useMutation(api.claims.create);

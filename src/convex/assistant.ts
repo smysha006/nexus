@@ -26,7 +26,7 @@ function monthBounds(now: number): [number, number] {
 }
 
 export const ask = query({
-  args: { prompt: v.string() },
+  args: { prompt: v.string(), currency: v.optional(v.string()) },
   handler: async (ctx, args) => {
     const user = await getCurrentUser(ctx);
     if (!user) {
@@ -42,6 +42,7 @@ export const ask = query({
       .withIndex("by_user", (q) => q.eq("userId", user._id))
       .collect();
     const now = Date.now();
+    const money = (n: number) => fmtMoney(n, args.currency ?? "USD");
     const q = args.prompt.toLowerCase();
 
     const source = (p: (typeof purchases)[number], note: string) => ({
@@ -141,9 +142,9 @@ export const ask = query({
       const lines = candidates.map(({ p, resale }, i) => {
         const top = i === 0 ? " — best candidate" : "";
         const age = Math.floor((now - p.purchaseDate) / (DAY * 365));
-        return `• ${p.name}: est. ${fmtMoney(resale)}${top} (${age} yr${age === 1 ? "" : "s"} old, paid ${fmtMoney(p.price)})`;
+        return `• ${p.name}: est. ${money(resale)}${top} (${age} yr${age === 1 ? "" : "s"} old, paid ${money(p.price)})`;
       });
-      candidates.forEach(({ p, resale }) => sources.push(source(p, `Est. resale ${fmtMoney(resale)}`)));
+      candidates.forEach(({ p, resale }) => sources.push(source(p, `Est. resale ${money(resale)}`)));
       return {
         answer: `Rough resale estimates (depreciation model, not appraisals):\n${lines.join("\n")}\n\nIf you're clearing space, ${candidates[0].p.name} gives you the most money back today.`,
         sources,
@@ -157,13 +158,13 @@ export const ask = query({
       const byCat = new Map<string, number>();
       for (const p of purchases) byCat.set(p.category, (byCat.get(p.category) ?? 0) + p.price);
       const top = [...byCat.entries()].sort((a, b) => b[1] - a[1]);
-      const lines = top.map(([c, v]) => `• ${c}: ${fmtMoney(v)}`);
+      const lines = top.map(([c, v]) => `• ${c}: ${money(v)}`);
       for (const [c, v] of top.slice(0, 3)) {
         const p = purchases.find((x) => x.category === c);
-        if (p) sources.push(source(p, `${c} spend ${fmtMoney(v)}`));
+        if (p) sources.push(source(p, `${c} spend ${money(v)}`));
       }
       return {
-        answer: `Across ${purchases.length} tracked purchase${purchases.length === 1 ? "" : "s"} you've spent ${fmtMoney(total)}:\n${lines.join("\n")}`,
+        answer: `Across ${purchases.length} tracked purchase${purchases.length === 1 ? "" : "s"} you've spent ${money(total)}:\n${lines.join("\n")}`,
         sources,
         label: "Computed from your stored data",
       };
@@ -176,7 +177,7 @@ export const ask = query({
       );
       const value = protectedItems.reduce((s, p) => s + p.price, 0);
       const atRisk = purchases.filter((p) => ws(p) === "expired" && p.price > 100);
-      let answer = `${fmtMoney(value)} of your stuff is currently covered by a warranty or return protection.`;
+      let answer = `${money(value)} of your stuff is currently covered by a warranty or return protection.`;
       if (atRisk.length > 0) {
         answer += `\n\n${atRisk.map((p) => p.name).join(", ")} ${atRisk.length === 1 ? "has" : "have"} lost coverage — worth ${atRisk.length === 1 ? "an" : ""} eye${atRisk.length === 1 ? "" : "s"} on.`;
       }
@@ -246,7 +247,7 @@ export const ask = query({
       }
       const lines = drops.map((p) => {
         const drop = p.price - p.currentPrice!;
-        return `• ${p.name}: ${fmtMoney(p.currentPrice!)} now (${fmtMoney(drop)} below what you paid)`;
+        return `• ${p.name}: ${money(p.currentPrice!)} now (${money(drop)} below what you paid)`;
       });
       drops.forEach((p) => sources.push(source(p, "Price dropped")));
       return {
@@ -268,7 +269,7 @@ export const ask = query({
         const p = purchases.find((x) => x.category === top[0]);
         if (p) sources.push(source(p, `${top[0]} · ${pct}% of spend`));
         return {
-          answer: `${top[0]} accounts for ${pct}% of your tracked spend (${fmtMoney(top[1])} of ${fmtMoney(total)}). Add more receipts and I'll keep the breakdown current.`,
+          answer: `${top[0]} accounts for ${pct}% of your tracked spend (${money(top[1])} of ${money(total)}). Add more receipts and I'll keep the breakdown current.`,
           sources,
           label: "Computed from your stored data",
         };

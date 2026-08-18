@@ -20,6 +20,7 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { categoryMeta } from "@/lib/catalog";
 import { fmtMoney, monthKey } from "@/lib/format";
+import { useCurrency } from "@/lib/currency";
 import { resaleEstimate } from "@/convex/lib";
 import { cn } from "@/lib/utils";
 
@@ -73,6 +74,7 @@ function InsightCard({
 }
 
 export default function Insights() {
+  useCurrency();
   const summary = useQuery(api.purchases.summary);
   const now = Date.now();
 

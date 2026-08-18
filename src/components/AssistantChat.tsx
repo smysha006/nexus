@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { useCurrency } from "@/lib/currency";
 import { cn } from "@/lib/utils";
 
 interface Source {
@@ -37,6 +38,7 @@ export function AssistantChat({
   className?: string;
 }) {
   const convex = useConvex();
+  const { currency } = useCurrency();
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
@@ -62,7 +64,7 @@ export function AssistantChat({
     setInput("");
     setLoading(true);
     try {
-      const res = await convex.query(api.assistant.ask, { prompt: trimmed });
+      const res = await convex.query(api.assistant.ask, { prompt: trimmed, currency });
       setMessages((m) => [
         ...m,
         {

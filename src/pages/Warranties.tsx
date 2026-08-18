@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { fmtDate, fmtMoney, relativeDays } from "@/lib/format";
+import { useCurrency } from "@/lib/currency";
 import { cn } from "@/lib/utils";
 import type { WarrantyStatus } from "@/convex/lib";
 
@@ -21,6 +22,7 @@ function warrantyProgress(purchaseDate: number, expires: number, now: number): n
 }
 
 export default function Warranties() {
+  useCurrency();
   const summary = useQuery(api.purchases.summary);
   const navigate = useNavigate();
   const [filter, setFilter] = useState<Filter>("all");

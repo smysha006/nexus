@@ -44,6 +44,7 @@ import { PurchaseForm, purchaseToForm } from "@/components/PurchaseForm";
 import { ConfidencePill, ReturnBadge, SourceBadge, WarrantyBadge } from "@/components/StatusBadges";
 import { categoryMeta } from "@/lib/catalog";
 import { fmtDate, fmtMoney, fullDate, relativeDays } from "@/lib/format";
+import { useCurrency } from "@/lib/currency";
 import { cn } from "@/lib/utils";
 
 function downloadText(filename: string, content: string) {
@@ -57,6 +58,7 @@ function downloadText(filename: string, content: string) {
 }
 
 export default function PurchaseDetail() {
+  useCurrency();
   const { id } = useParams<{ id: string }>();
   const purchase = useQuery(api.purchases.get, id ? { id: id as never } : "skip");
   const remove = useMutation(api.purchases.remove);

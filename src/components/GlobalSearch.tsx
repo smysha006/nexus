@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Search, ScanLine, Sparkles, ShieldCheck, RotateCcw, LayoutDashboard, BarChart3, FileText, Package } from "lucide-react";
 import { categoryMeta } from "@/lib/catalog";
 import { fmtMoney } from "@/lib/format";
+import { useCurrency } from "@/lib/currency";
 import { Badge } from "@/components/ui/badge";
 
 const NAV_ACTIONS = [

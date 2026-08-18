@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Skeleton } from "@/components/ui/skeleton";
 import { fmtDate, fmtMoney } from "@/lib/format";
+import { useCurrency } from "@/lib/currency";
 import { cn } from "@/lib/utils";
 
 function useNow(interval = 60_000) {
@@ -34,6 +35,7 @@ function Countdown({ target }: { target: number }) {
 }
 
 export default function Returns() {
+  useCurrency();
   const summary = useQuery(api.purchases.summary);
   const navigate = useNavigate();
   const now = Date.now();
