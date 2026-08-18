@@ -22,7 +22,7 @@ export default function Assistant() {
     <div className="space-y-5">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="font-display text-2xl font-bold tracking-tight">NEXUS AI Assistant</h1>
+          <h1 className="font-display text-2xl font-bold tracking-tight">Nexus OS AI Assistant</h1>
           <p className="mt-1 text-sm text-muted-foreground">
             Ask anything about what you own — answers come from your real stored data.
           </p>
@@ -46,7 +46,7 @@ export default function Assistant() {
             <Sparkles className="size-4" />
           </span>
           <div>
-            <p className="text-sm font-semibold">NEXUS Intelligence</p>
+            <p className="text-sm font-semibold">Nexus OS Intelligence</p>
             <p className="text-[11px] text-muted-foreground">
               Reads your purchases, warranties, returns, and spending · estimates are labeled
             </p>
@@ -56,7 +56,7 @@ export default function Assistant() {
       </motion.div>
 
       <p className="text-[11px] leading-4 text-muted-foreground/70">
-        Honesty by design: NEXUS only answers from data in your vault. Resale figures are
+        Honesty by design: Nexus OS only answers from data in your vault. Resale figures are
         depreciation-model estimates, never appraisals, and warranty statements are derived from
         your receipts unless you've verified them with the manufacturer.
       </p>

@@ -125,7 +125,7 @@ export default function Claims() {
       <div>
         <h1 className="font-display text-2xl font-bold tracking-tight">AI Claim Assistant</h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          Describe what's wrong — NEXUS checks your warranty and drafts the claim for you.
+          Describe what's wrong — Nexus OS checks your warranty and drafts the claim for you.
         </p>
       </div>
 
@@ -191,7 +191,7 @@ export default function Claims() {
             </Button>
 
             <p className="text-[11px] leading-4 text-muted-foreground/70">
-              NEXUS checks the warranty dates on file and marks coverage honestly — it never
+              Nexus OS checks the warranty dates on file and marks coverage honestly — it never
               invents terms or legal rights. You stay in control of what gets sent.
             </p>
           </CardContent>
@@ -214,7 +214,7 @@ export default function Claims() {
               <div>
                 <p className="font-medium">No claims yet</p>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Pick a product, describe the issue, and NEXUS will draft a claim from your
+                  Pick a product, describe the issue, and Nexus OS will draft a claim from your
                   warranty data.
                 </p>
               </div>

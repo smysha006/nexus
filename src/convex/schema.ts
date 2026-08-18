@@ -46,7 +46,7 @@ const schema = defineSchema(
       isAnonymous: v.optional(v.boolean()),
       role: v.optional(roleValidator),
 
-      // NEXUS onboarding
+      // Nexus OS onboarding
       onboardingComplete: v.optional(v.boolean()),
       trackedCategories: v.optional(v.array(v.string())),
       priorities: v.optional(v.array(v.string())),

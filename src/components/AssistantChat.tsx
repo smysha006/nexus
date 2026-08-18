@@ -41,7 +41,7 @@ export function AssistantChat({
     {
       role: "assistant",
       content:
-        "Hi, I'm NEXUS. I read your stored purchases, warranties, and return windows, and answer from that data — no guesswork. What would you like to know?",
+        "Hi, I'm Nexus OS. I read your stored purchases, warranties, and return windows, and answer from that data — no guesswork. What would you like to know?",
     },
   ]);
   const [input, setInput] = useState("");

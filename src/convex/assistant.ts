@@ -34,7 +34,7 @@ export const ask = query({
         answer:
           "You're not signed in yet. Create an account to let me answer from your purchases.",
         sources: [] as { id: string; name: string; image?: string; note: string }[],
-        label: "NEXUS Intelligence",
+        label: "Nexus OS Intelligence",
       };
     }
     const purchases = await ctx.db
@@ -279,7 +279,7 @@ export const ask = query({
       answer:
         "I can answer from your stored data — try:\n\n• “What warranties expire this month?”\n• “Can I still return my headphones?”\n• “Which product is worth selling?”\n• “How much have I spent on electronics?”\n• “What's protected right now?”\n• “Any price drops?”",
       sources,
-      label: "NEXUS Intelligence · answers from your data",
+      label: "Nexus OS Intelligence · answers from your data",
     };
   },
 });

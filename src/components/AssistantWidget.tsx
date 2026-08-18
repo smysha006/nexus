@@ -12,8 +12,8 @@ export function AssistantWidget() {
         type="button"
         onClick={() => setOpen(true)}
         className="group fixed bottom-5 right-5 z-40 flex size-13 items-center justify-center rounded-2xl border border-primary/30 bg-gradient-to-br from-[#5f7bff] to-[#3f5fff] text-white shadow-[0_8px_30px_-6px_rgba(79,107,255,0.55)] transition-all hover:scale-105 hover:shadow-[0_10px_36px_-6px_rgba(79,107,255,0.7)]"
-        aria-label="Open NEXUS AI assistant"
-        title="Ask NEXUS"
+        aria-label="Open Nexus OS AI assistant"
+        title="Ask Nexus OS"
       >
         <Sparkles className="size-5" />
         <span className="absolute -top-1 -right-1 flex size-3">
@@ -29,7 +29,7 @@ export function AssistantWidget() {
               <span className="flex size-7 items-center justify-center rounded-lg bg-primary/15 text-primary">
                 <Sparkles className="size-4" />
               </span>
-              NEXUS AI Assistant
+              Nexus OS AI Assistant
             </SheetTitle>
             <SheetDescription>
               Answers from your real stored data — warranties, returns, spending.

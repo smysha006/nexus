@@ -192,7 +192,7 @@ export default function Warranties() {
       <p className="flex items-center gap-1.5 text-[11px] text-muted-foreground/70">
         <Shield className="size-3.5" />
         Warranty terms are extracted from receipts where visible. Verify extended coverage with
-        your manufacturer — NEXUS never invents terms.
+        your manufacturer — Nexus OS never invents terms.
       </p>
     </div>
   );

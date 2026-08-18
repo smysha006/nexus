@@ -71,14 +71,11 @@ export function AppShell() {
             type="button"
             onClick={() => navigate("/dashboard")}
             className="flex shrink-0 items-center gap-2.5"
-            aria-label="NEXUS home"
+            aria-label="Nexus OS home"
           >
             <NexusMark size={30} />
             <span className="hidden font-display text-[15px] font-bold tracking-tight sm:block">
-              NEXUS
-              <span className="ml-1.5 rounded-md border border-border/70 bg-muted/50 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-widest text-muted-foreground">
-                OS
-              </span>
+              Nexus OS
             </span>
           </button>
 

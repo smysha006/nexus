@@ -78,7 +78,7 @@ export default function Scan() {
       <div>
         <h1 className="font-display text-2xl font-bold tracking-tight">AI Receipt Scanner</h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          Drop a receipt photo or PDF and NEXUS extracts the product, warranty, and return window —
+          Drop a receipt photo or PDF and Nexus OS extracts the product, warranty, and return window —
           then flags anything it's unsure about.
         </p>
       </div>
@@ -169,7 +169,7 @@ export default function Scan() {
             <div>
               <p className="font-display text-base font-semibold">Analyzing your receipt</p>
               <p className="mt-1 text-xs text-muted-foreground">
-                {fileName ?? "receipt.jpg"} · NEXUS Intelligence
+                {fileName ?? "receipt.jpg"} · Nexus OS Intelligence
               </p>
             </div>
             <div className="w-full space-y-3">

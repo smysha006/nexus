@@ -174,7 +174,7 @@ export default function PurchaseDetail() {
   };
 
   const receiptDoc = [
-    `NEXUS OS — Receipt record`,
+    `Nexus OS — Receipt record`,
     `==========================`,
     `Product: ${purchase.name}`,
     `Merchant: ${purchase.merchant ?? "—"}`,
@@ -184,11 +184,11 @@ export default function PurchaseDetail() {
     `Order: ${purchase.orderNumber ?? "—"}`,
     `Source: ${purchase.source ?? "manual"}${purchase.confidence != null ? ` (AI confidence ${purchase.confidence}%)` : ""}`,
     ``,
-    `Stored by NEXUS OS. Original document is the authoritative receipt.`,
+    `Stored by Nexus OS. Original document is the authoritative receipt.`,
   ].join("\n");
 
   const invoiceDoc = [
-    `NEXUS OS — Invoice record`,
+    `Nexus OS — Invoice record`,
     `=========================`,
     `Product: ${purchase.name}`,
     `Brand: ${purchase.brand ?? "—"}`,
@@ -199,11 +199,11 @@ export default function PurchaseDetail() {
     `Amount: ${fmtMoney(purchase.price)}`,
     `Date: ${fullDate(purchase.purchaseDate)}`,
     ``,
-    `Stored by NEXUS OS. Original invoice remains authoritative.`,
+    `Stored by Nexus OS. Original invoice remains authoritative.`,
   ].join("\n");
 
   const warrantyDoc = [
-    `NEXUS OS — Warranty record`,
+    `Nexus OS — Warranty record`,
     `==========================`,
     `Product: ${purchase.name}`,
     `Serial: ${purchase.serialNumber ?? "—"}`,
@@ -211,7 +211,7 @@ export default function PurchaseDetail() {
     `Expires: ${purchase.warrantyExpires ? fullDate(purchase.warrantyExpires) : "—"}`,
     `Status: ${purchase.warrantyExpires ? (purchase.warrantyExpires < now ? "Expired" : "Active") : "No warranty on file"}`,
     ``,
-    `Stored by NEXUS OS. Warranty terms are estimates from the receipt unless verified with the manufacturer.`,
+    `Stored by Nexus OS. Warranty terms are estimates from the receipt unless verified with the manufacturer.`,
   ].join("\n");
 
   return (
@@ -441,7 +441,7 @@ export default function PurchaseDetail() {
           </div>
           <p className="mt-3 flex items-center gap-1.5 text-[11px] text-muted-foreground/70">
             <FileWarning className="size-3.5" />
-            These are NEXUS records of your data. The original receipt or invoice remains the
+            These are Nexus OS records of your data. The original receipt or invoice remains the
             authoritative document.
           </p>
         </TabsContent>

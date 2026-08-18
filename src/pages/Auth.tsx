@@ -105,7 +105,7 @@ function Auth({ redirectAfterAuth }: AuthProps = {}) {
         className="absolute left-5 top-5 flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
       >
         <NexusMark size={26} />
-        NEXUS OS
+        Nexus OS
       </button>
 
       <motion.div
@@ -122,7 +122,7 @@ function Auth({ redirectAfterAuth }: AuthProps = {}) {
                   <Lock className="size-6" />
                 </span>
                 <h1 className="mt-4 font-display text-2xl font-bold tracking-tight">
-                  Welcome to NEXUS
+                  Welcome to Nexus OS
                 </h1>
                 <p className="mt-1.5 text-sm text-muted-foreground">
                   Your purchases, connected intelligently. Sign in or create an account to

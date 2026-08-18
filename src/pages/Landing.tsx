@@ -60,7 +60,7 @@ const STEPS = [
     n: "01",
     icon: ScanLine,
     title: "Scan",
-    text: "Snap a receipt or drop in a PDF. NEXUS reads the product, price, and dates, and flags anything it's unsure about.",
+    text: "Snap a receipt or drop in a PDF. Nexus OS reads the product, price, and dates, and flags anything it's unsure about.",
   },
   {
     n: "02",
@@ -86,7 +86,7 @@ const FEATURES = [
   {
     icon: ScanLine,
     title: "AI Receipt Scanner",
-    text: "Drag, drop, or photograph. NEXUS extracts product, merchant, price, and dates — and tells you exactly what it's confident about.",
+    text: "Drag, drop, or photograph. Nexus OS extracts product, merchant, price, and dates — and tells you exactly what it's confident about.",
     accent: "text-sky-300 bg-sky-400/10 border-sky-400/20",
   },
   {
@@ -104,7 +104,7 @@ const FEATURES = [
   {
     icon: FileWarning,
     title: "AI Claim Assistant",
-    text: "Describe the problem. NEXUS checks eligibility against your warranty and drafts the claim for you.",
+    text: "Describe the problem. Nexus OS checks eligibility against your warranty and drafts the claim for you.",
     accent: "text-amber-300 bg-amber-400/10 border-amber-400/20",
   },
   {
@@ -139,10 +139,7 @@ export default function Landing() {
           <div className="flex items-center gap-2.5">
             <NexusMark size={32} />
             <span className="font-display text-lg font-bold tracking-tight">
-              NEXUS
-              <span className="ml-1.5 rounded-md border border-border/70 bg-muted/50 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-widest text-muted-foreground">
-                OS
-              </span>
+              Nexus OS
             </span>
           </div>
           <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
@@ -176,7 +173,7 @@ export default function Landing() {
               transition={{ duration: 0.6, delay: 0.08 }}
               className="mt-6 font-display text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.4rem]"
             >
-              NEXUS doesn't just remember what you bought.{" "}
+              Nexus OS doesn't just remember what you bought.{" "}
               <span className="text-gradient">It helps you get the most from everything you own.</span>
             </motion.h1>
 
@@ -186,7 +183,7 @@ export default function Landing() {
               transition={{ duration: 0.6, delay: 0.16 }}
               className="mt-5 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg"
             >
-              Scan a receipt and NEXUS builds a living profile for every purchase — warranties, return
+              Scan a receipt and Nexus OS builds a living profile for every purchase — warranties, return
               windows, serial numbers, and resale value — then tells you what to do before it's too late.
             </motion.p>
 
@@ -284,7 +281,7 @@ export default function Landing() {
                 <span className="flex size-7 items-center justify-center rounded-lg bg-primary/15 text-primary">
                   <Sparkles className="size-4" />
                 </span>
-                <p className="text-xs font-semibold">NEXUS Assistant</p>
+                <p className="text-xs font-semibold">Nexus OS Assistant</p>
               </div>
               <p className="mt-2.5 rounded-xl rounded-tl-sm bg-muted/60 px-3 py-2 text-xs leading-5">
                 Can I still return my headphones?
@@ -317,7 +314,7 @@ export default function Landing() {
               Your proof of purchase is everywhere — except where you need it.
             </h2>
             <p className="mt-4 text-muted-foreground">
-              You paid for warranties, return rights, and resale value. NEXUS exists because those
+              You paid for warranties, return rights, and resale value. Nexus OS exists because those
               rights expire silently, scattered across a dozen inboxes and drawers.
             </p>
           </motion.div>
@@ -352,7 +349,7 @@ export default function Landing() {
               Buy → Scan → Understand → Track → Protect → Act
             </h2>
             <p className="mt-4 text-muted-foreground">
-              One receipt in, and NEXUS runs the whole ownership lifecycle for you.
+              One receipt in, and Nexus OS runs the whole ownership lifecycle for you.
             </p>
           </motion.div>
           <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -418,7 +415,7 @@ export default function Landing() {
               Your data, actually answering back.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-              NEXUS's assistant reads your real stored purchases — not marketing copy — to answer
+              The Nexus OS assistant reads your real stored purchases — not marketing copy — and answers
               questions about what you own.
             </p>
           </motion.div>
@@ -481,7 +478,7 @@ export default function Landing() {
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-muted-foreground sm:text-lg">
               Connect your first purchase in under a minute. Free to start, demo data included so
-              you can see NEXUS working immediately.
+              you can see Nexus OS working immediately.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Link to="/auth">
@@ -506,12 +503,12 @@ export default function Landing() {
           <div className="flex items-center gap-2.5">
             <NexusMark size={24} />
             <span className="font-display text-sm font-bold tracking-tight">
-              NEXUS OS
+              Nexus OS
             </span>
             <span className="text-xs text-muted-foreground">· Your purchases. Connected intelligently.</span>
           </div>
           <p className="text-xs text-muted-foreground">
-            Estimated vs. extracted vs. user-entered data is always labeled. NEXUS never invents
+            Estimated vs. extracted vs. user-entered data is always labeled. Nexus OS never invents
             prices, warranty terms, or legal rights.
           </p>
         </div>

@@ -15,7 +15,7 @@ export default function NotFound() {
       <NexusMark size={52} />
       <h1 className="mt-6 font-display text-6xl font-bold tracking-tight">404</h1>
       <p className="mt-3 text-lg text-muted-foreground">
-        This page isn't part of your NEXUS.
+        This page isn't part of your Nexus OS.
       </p>
       <p className="mt-1 flex items-center gap-1.5 text-sm text-muted-foreground/70">
         <Compass className="size-4" />
@@ -24,7 +24,7 @@ export default function NotFound() {
       <Link to="/" className="mt-8">
         <Button className="gap-2 rounded-xl">
           <ArrowLeft className="size-4" />
-          Back to NEXUS
+          Back to Nexus OS
         </Button>
       </Link>
     </motion.div>

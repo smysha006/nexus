@@ -148,7 +148,7 @@ export default function Dashboard() {
           </p>
           <h1 className="mt-1 font-display text-2xl font-bold tracking-tight sm:text-3xl">
             {greeting()}
-            <span className="text-muted-foreground">, here's your NEXUS</span>
+            <span className="text-muted-foreground">, here's your Nexus OS</span>
           </h1>
         </div>
         <Button onClick={() => navigate("/scan")} className="gap-2 rounded-xl self-start sm:self-auto">
@@ -236,7 +236,7 @@ export default function Dashboard() {
             to="/assistant"
             className="flex items-center gap-1 text-xs font-medium text-muted-foreground transition-colors hover:text-primary"
           >
-            Ask NEXUS instead
+            Ask Nexus OS instead
             <ArrowRight className="size-3" />
           </Link>
         </div>
@@ -331,7 +331,7 @@ export default function Dashboard() {
             <div className="max-w-sm">
               <p className="font-display text-base font-semibold">Your vault is empty</p>
               <p className="mt-1.5 text-sm text-muted-foreground">
-                Scan your first receipt — or load 12 realistic demo purchases to explore NEXUS
+                Scan your first receipt — or load 12 realistic demo purchases to explore Nexus OS
                 end to end.
               </p>
             </div>

@@ -61,7 +61,7 @@ export default function Onboarding() {
           <div className="flex items-center gap-3">
             <NexusMark size={40} />
             <div>
-              <h1 className="font-display text-xl font-bold tracking-tight">Set up your NEXUS</h1>
+              <h1 className="font-display text-xl font-bold tracking-tight">Set up your Nexus OS</h1>
               <p className="text-sm text-muted-foreground">
                 Two quick questions — then we'll build your workspace.
               </p>
@@ -147,7 +147,7 @@ export default function Onboarding() {
               onClick={() => finish(withDemo)}
               disabled={loading}
             >
-              {loading ? "Building your workspace…" : "Build my NEXUS"}
+              {loading ? "Building your workspace…" : "Build my Nexus OS"}
               {!loading && <ArrowRight className="size-4" />}
             </Button>
             <Button

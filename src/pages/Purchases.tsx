@@ -163,7 +163,7 @@ export default function Purchases() {
             <p className="mt-1.5 text-sm text-muted-foreground">
               {query || category !== "all"
                 ? "Try a different search or clear the filters."
-                : "Scan your first receipt and NEXUS will build its profile — or add a purchase manually."}
+                : "Scan your first receipt and Nexus OS will build its profile — or add a purchase manually."}
             </p>
           </div>
           <div className="flex flex-wrap justify-center gap-2">

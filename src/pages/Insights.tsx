@@ -145,7 +145,7 @@ export default function Insights() {
       out.push({
         icon: Sparkles,
         title: `${fmtMoney(subs)} in subscriptions per month`,
-        text: `That's ${fmtMoney(subs * 12)} a year. NEXUS tracks them like purchases so nothing renews unnoticed.`,
+        text: `That's ${fmtMoney(subs * 12)} a year. Nexus OS tracks them like purchases so nothing renews unnoticed.`,
         tone: "text-emerald-300 bg-emerald-400/10",
       });
     }
@@ -182,7 +182,7 @@ export default function Insights() {
         <BarChart3 className="size-8 text-muted-foreground" />
         <p className="font-semibold">No data to analyze yet</p>
         <p className="text-sm text-muted-foreground">
-          Scan a few receipts and NEXUS will start breaking down your spending by category, month,
+          Scan a few receipts and Nexus OS will start breaking down your spending by category, month,
           and merchant.
         </p>
         <Link to="/scan">
