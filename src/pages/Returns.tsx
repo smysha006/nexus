@@ -23,7 +23,7 @@ function useNow(interval = 60_000) {
 function Countdown({ target }: { target: number }) {
   const now = useNow(60_000);
   const diff = target - now;
-  if (diff <= 0) return <span className="font-bold text-rose-400">Closed</span>;
+  if (diff <= 0) return <span className="font-bold text-danger">Closed</span>;
   const days = Math.floor(diff / 86_400_000);
   const hours = Math.floor((diff % 86_400_000) / 3_600_000);
   return (
@@ -60,7 +60,7 @@ export default function Returns() {
         transition={{ delay: Math.min(i * 0.06, 0.3) }}
         className={cn(
           "nexus-card flex flex-col p-5",
-          closing && "border-rose-400/30",
+          closing && "border-danger/30",
           !isOpen && "opacity-75",
         )}
       >
@@ -79,12 +79,12 @@ export default function Returns() {
           </div>
           {isOpen ? (
             closing ? (
-              <Badge className="border-rose-400/20 bg-rose-400/10 text-rose-300">
+              <Badge className="border-danger/20 bg-danger/10 text-danger">
                 <RotateCcw className="size-3" />
                 Closing soon
               </Badge>
             ) : (
-              <Badge className="border-sky-400/20 bg-sky-400/10 text-sky-300">
+              <Badge className="border-info/20 bg-info/10 text-info">
                 <RotateCcw className="size-3" />
                 Open
               </Badge>
@@ -110,15 +110,15 @@ export default function Returns() {
               "rounded-xl border p-2.5",
               isOpen
                 ? closing
-                  ? "border-rose-400/25 bg-rose-400/10"
-                  : "border-sky-400/25 bg-sky-400/10"
+                  ? "border-danger/25 bg-danger/10"
+                  : "border-info/25 bg-info/10"
                 : "border-border/70 bg-muted/30",
             )}
           >
             <p className="text-[10px] uppercase tracking-wide text-muted-foreground">
               {isOpen ? "Time left" : "Ended"}
             </p>
-            <p className={cn("mt-0.5 text-sm", isOpen && closing && "text-rose-300")}>
+            <p className={cn("mt-0.5 text-sm", isOpen && closing && "text-danger")}>
               {isOpen ? <Countdown target={deadline} /> : fmtDate(deadline)}
             </p>
           </div>
@@ -134,9 +134,9 @@ export default function Returns() {
             className={cn(
               "mt-1 h-1.5",
               closing
-                ? "bg-rose-400/20 [&>div]:bg-rose-400"
+                ? "bg-danger/20 [&>div]:bg-danger"
                 : isOpen
-                  ? "bg-sky-400/20 [&>div]:bg-sky-400"
+                  ? "bg-info/20 [&>div]:bg-info"
                   : "bg-muted [&>div]:bg-muted-foreground/40",
             )}
           />

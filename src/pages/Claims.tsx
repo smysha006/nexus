@@ -31,19 +31,19 @@ function eligibilityMeta(eligibility: string) {
     case "covered":
       return {
         label: "Eligible — within warranty",
-        cls: "border-emerald-400/20 bg-emerald-400/10 text-emerald-300",
+        cls: "border-success/20 bg-success/10 text-success",
         icon: CheckCircle2,
       };
     case "expiring":
       return {
         label: "Eligible — expires soon",
-        cls: "border-amber-400/20 bg-amber-400/10 text-amber-300",
+        cls: "border-warning/20 bg-warning/10 text-warning",
         icon: ShieldAlert,
       };
     case "expired":
       return {
         label: "Warranty expired — not covered",
-        cls: "border-rose-400/20 bg-rose-400/10 text-rose-300",
+        cls: "border-danger/20 bg-danger/10 text-danger",
         icon: ShieldX,
       };
     default:
@@ -252,7 +252,7 @@ export default function Claims() {
                         className={cn(
                           "border",
                           claim.status === "submitted"
-                            ? "border-emerald-400/20 bg-emerald-400/10 text-emerald-300"
+                            ? "border-success/20 bg-success/10 text-success"
                             : "border-border/60 text-muted-foreground",
                         )}
                       >

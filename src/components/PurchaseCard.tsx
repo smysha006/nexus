@@ -15,7 +15,7 @@ export function PurchaseCard({ p }: { p: PurchaseSummary }) {
   return (
     <Link
       to={`/purchases/${p.id}`}
-      className="group nexus-card flex flex-col overflow-hidden p-0 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.5)]"
+      className="group nexus-card flex flex-col overflow-hidden p-0 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-[var(--card-shadow-hover)]"
     >
       <div className="flex items-start gap-3 p-4 pb-3">
         <div className="flex size-11 shrink-0 items-center justify-center rounded-xl border border-border/70 bg-muted/50 text-xl">
@@ -48,7 +48,7 @@ export function PurchaseCard({ p }: { p: PurchaseSummary }) {
       </div>
 
       {p.hasPriceDrop && (
-        <div className="mx-4 mt-3 flex items-center gap-1.5 rounded-lg border border-amber-400/20 bg-amber-400/10 px-2 py-1.5 text-[11px] font-medium text-amber-300">
+        <div className="mx-4 mt-3 flex items-center gap-1.5 rounded-lg border border-warning/20 bg-warning/10 px-2 py-1.5 text-[11px] font-medium text-warning">
           <TrendingDown className="size-3" />
           Now {fmtMoney(p.currentPrice!)} — {fmtMoney(p.price - p.currentPrice!)} below what you paid
         </div>

@@ -2,16 +2,16 @@ import { cn } from "@/lib/utils";
 
 export function healthColor(score?: number | null): string {
   if (score == null) return "stroke-muted-foreground/40";
-  if (score >= 75) return "stroke-emerald-400";
-  if (score >= 50) return "stroke-amber-400";
-  return "stroke-rose-400";
+  if (score >= 75) return "stroke-success";
+  if (score >= 50) return "stroke-warning";
+  return "stroke-danger";
 }
 
 export function healthText(score?: number | null): string {
   if (score == null) return "—";
-  if (score >= 75) return "text-emerald-400";
-  if (score >= 50) return "text-amber-400";
-  return "text-rose-400";
+  if (score >= 75) return "text-success";
+  if (score >= 50) return "text-warning";
+  return "text-danger";
 }
 
 interface HealthRingProps {

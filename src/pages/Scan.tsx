@@ -181,7 +181,7 @@ export default function Scan() {
                     key={s.label}
                     className={cn(
                       "flex items-center gap-3 rounded-xl border px-4 py-3 transition-all",
-                      state === "done" && "border-emerald-400/20 bg-emerald-400/5",
+                      state === "done" && "border-success/20 bg-success/5",
                       state === "current" && "border-primary/30 bg-primary/5",
                       state === "pending" && "border-border/60 opacity-50",
                     )}
@@ -190,7 +190,7 @@ export default function Scan() {
                       className={cn(
                         "flex size-7 shrink-0 items-center justify-center rounded-lg",
                         state === "done"
-                          ? "bg-emerald-400/15 text-emerald-400"
+                          ? "bg-success/15 text-success"
                           : state === "current"
                             ? "bg-primary/15 text-primary"
                             : "bg-muted text-muted-foreground",
@@ -239,8 +239,8 @@ export default function Scan() {
               className={cn(
                 "self-start sm:self-auto",
                 extracted.confidence >= 90
-                  ? "border-emerald-400/20 bg-emerald-400/10 text-emerald-300"
-                  : "border-amber-400/20 bg-amber-400/10 text-amber-300",
+                  ? "border-success/20 bg-success/10 text-success"
+                  : "border-warning/20 bg-warning/10 text-warning",
               )}
             >
               AI confidence {extracted.confidence}%
@@ -250,7 +250,7 @@ export default function Scan() {
           {extracted.lowConfidence.length > 0 && (
             <div className="flex flex-wrap gap-1.5">
               {extracted.lowConfidence.map((f) => (
-                <Badge key={f} variant="outline" className="border-amber-400/25 bg-amber-400/10 text-amber-300">
+                <Badge key={f} variant="outline" className="border-warning/25 bg-warning/10 text-warning">
                   ⚠ {f} — estimated, verify
                 </Badge>
               ))}

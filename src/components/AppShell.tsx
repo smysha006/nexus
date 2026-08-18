@@ -2,6 +2,7 @@ import { useAuth } from "@/hooks/use-auth";
 import { NexusMark } from "@/components/NexusMark";
 import { GlobalSearch } from "@/components/GlobalSearch";
 import { NotificationsPopover } from "@/components/NotificationsPopover";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { AssistantWidget } from "@/components/AssistantWidget";
 import { Button } from "@/components/ui/button";
 import {
@@ -103,6 +104,7 @@ export function AppShell() {
           </nav>
 
           <div className="ml-auto flex items-center gap-2">
+            <ThemeToggle />
             <GlobalSearch />
             <NotificationsPopover />
             <Button

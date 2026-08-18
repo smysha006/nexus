@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router";
 import { NexusMark } from "@/components/NexusMark";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -87,44 +88,44 @@ const FEATURES = [
     icon: ScanLine,
     title: "AI Receipt Scanner",
     text: "Drag, drop, or photograph. Nexus OS extracts product, merchant, price, and dates — and tells you exactly what it's confident about.",
-    accent: "text-sky-300 bg-sky-400/10 border-sky-400/20",
+    accent: "text-info bg-info/10 border-info/20",
   },
   {
     icon: ShieldCheck,
     title: "Warranty Intelligence",
     text: "Every warranty tracked to the day, with expiring coverage surfaced before it lapses.",
-    accent: "text-emerald-300 bg-emerald-400/10 border-emerald-400/20",
+    accent: "text-success bg-success/10 border-success/20",
   },
   {
     icon: RotateCcw,
     title: "Return Tracking",
     text: "Return windows auto-calculated from purchase date + store policy. Countdowns, not guesswork.",
-    accent: "text-rose-300 bg-rose-400/10 border-rose-400/20",
+    accent: "text-danger bg-danger/10 border-danger/20",
   },
   {
     icon: FileWarning,
     title: "AI Claim Assistant",
     text: "Describe the problem. Nexus OS checks eligibility against your warranty and drafts the claim for you.",
-    accent: "text-amber-300 bg-amber-400/10 border-amber-400/20",
+    accent: "text-warning bg-warning/10 border-warning/20",
   },
   {
     icon: BarChart3,
     title: "Spending Insights",
     text: "Spend by category, month, and merchant — explained in plain language, not spreadsheets.",
-    accent: "text-violet-300 bg-violet-400/10 border-violet-400/20",
+    accent: "text-violet bg-violet/10 border-violet/20",
   },
   {
     icon: ClipboardCheck,
     title: "Purchase Health Score",
     text: "A 0–100 score per item based on coverage, age, and value — with the one-line reason why.",
-    accent: "text-cyan-300 bg-cyan-400/10 border-cyan-400/20",
+    accent: "text-cyan bg-cyan/10 border-cyan/20",
   },
 ];
 
 const DEMO_PURCHASES = [
-  { emoji: "🎧", name: "WH-1000XM5", price: "$399", badge: "Return closes in 3 days", tone: "text-rose-300 bg-rose-400/10 border-rose-400/20" },
-  { emoji: "💻", name: "MacBook Pro 14″", price: "$1,999", badge: "Warranty expiring", tone: "text-amber-300 bg-amber-400/10 border-amber-400/20" },
-  { emoji: "⌚", name: "Apple Watch S9", price: "$429", badge: "Protected · Claim-ready", tone: "text-emerald-300 bg-emerald-400/10 border-emerald-400/20" },
+  { emoji: "🎧", name: "WH-1000XM5", price: "$399", badge: "Return closes in 3 days", tone: "text-danger bg-danger/10 border-danger/20" },
+  { emoji: "💻", name: "MacBook Pro 14″", price: "$1,999", badge: "Warranty expiring", tone: "text-warning bg-warning/10 border-warning/20" },
+  { emoji: "⌚", name: "Apple Watch S9", price: "$429", badge: "Protected · Claim-ready", tone: "text-success bg-success/10 border-success/20" },
 ];
 
 export default function Landing() {
@@ -147,12 +148,15 @@ export default function Landing() {
             <a href="#how" className="transition-colors hover:text-foreground">How it works</a>
             <a href="#features" className="transition-colors hover:text-foreground">Features</a>
           </nav>
-          <Link to="/auth">
-            <Button className="rounded-xl">
-              Open the app
-              <ArrowRight className="ml-1.5 size-4" />
-            </Button>
-          </Link>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <Link to="/auth">
+              <Button className="rounded-xl">
+                Open the app
+                <ArrowRight className="ml-1.5 size-4" />
+              </Button>
+            </Link>
+          </div>
         </div>
       </header>
 
@@ -213,13 +217,13 @@ export default function Landing() {
               className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-muted-foreground"
             >
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="size-3.5 text-emerald-400" /> Free to start
+                <CheckCircle2 className="size-3.5 text-success" /> Free to start
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="size-3.5 text-emerald-400" /> No card required
+                <CheckCircle2 className="size-3.5 text-success" /> No card required
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="size-3.5 text-emerald-400" /> Your data stays yours
+                <CheckCircle2 className="size-3.5 text-success" /> Your data stays yours
               </span>
             </motion.div>
           </div>
@@ -239,7 +243,7 @@ export default function Landing() {
                   </span>
                   <p className="text-sm font-semibold">Protected value</p>
                 </div>
-                <Badge variant="outline" className="border-emerald-400/20 bg-emerald-400/10 text-emerald-300">
+                <Badge variant="outline" className="border-success/20 bg-success/10 text-success">
                   +18% this quarter
                 </Badge>
               </div>

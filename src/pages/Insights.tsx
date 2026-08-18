@@ -38,7 +38,7 @@ const tooltipStyle = {
   borderRadius: 12,
   fontSize: 12,
   color: "var(--popover-foreground)",
-  boxShadow: "0 8px 30px -12px rgba(0,0,0,0.5)",
+  boxShadow: "var(--card-shadow)",
 };
 
 function InsightCard({
@@ -130,7 +130,7 @@ export default function Insights() {
         icon: Wallet,
         title: `${topCat[0]} lead your spending`,
         text: `${topCat[0]} account for ${pct}% of your tracked spend (${fmtMoney(topCat[1])} of ${fmtMoney(total)}).`,
-        tone: "text-sky-300 bg-sky-400/10",
+        tone: "text-info bg-info/10",
       });
     }
     if (topMerchant) {
@@ -138,7 +138,7 @@ export default function Insights() {
         icon: Store,
         title: `${topMerchant[0]} is your biggest merchant`,
         text: `You've spent ${fmtMoney(topMerchant[1])} there — worth checking for loyalty or price-match policies.`,
-        tone: "text-violet-300 bg-violet-400/10",
+        tone: "text-violet bg-violet/10",
       });
     }
     if (subs > 0) {
@@ -146,7 +146,7 @@ export default function Insights() {
         icon: Sparkles,
         title: `${fmtMoney(subs)} in subscriptions per month`,
         text: `That's ${fmtMoney(subs * 12)} a year. Nexus OS tracks them like purchases so nothing renews unnoticed.`,
-        tone: "text-emerald-300 bg-emerald-400/10",
+        tone: "text-success bg-success/10",
       });
     }
     if (biggest && resale) {
@@ -157,7 +157,7 @@ export default function Insights() {
           resale.p._id === biggest._id
             ? `Paid ${fmtMoney(biggest.price)} — estimated resale value today is ${fmtMoney(resale.v)}.`
             : `At ${fmtMoney(biggest.price)}, it drives a lot of your protected value. ${resale.p.name} holds the best resale estimate (${fmtMoney(resale.v)}).`,
-        tone: "text-amber-300 bg-amber-400/10",
+        tone: "text-warning bg-warning/10",
       });
     }
     return out;

@@ -17,8 +17,8 @@ export function AssistantWidget() {
       >
         <Sparkles className="size-5" />
         <span className="absolute -top-1 -right-1 flex size-3">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
-          <span className="relative inline-flex size-3 rounded-full border-2 border-background bg-emerald-400" />
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-70" />
+          <span className="relative inline-flex size-3 rounded-full border-2 border-background bg-success" />
         </span>
       </button>
 

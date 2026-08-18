@@ -13,7 +13,7 @@ export function WarrantyBadge({ status }: { status?: WarrantyStatus | null }) {
   }
   if (status === "active") {
     return (
-      <Badge className="border-emerald-400/20 bg-emerald-400/10 text-emerald-300">
+      <Badge className="border-success/20 bg-success/10 text-success">
         <ShieldCheck className="size-3" />
         Warranty active
       </Badge>
@@ -21,14 +21,14 @@ export function WarrantyBadge({ status }: { status?: WarrantyStatus | null }) {
   }
   if (status === "expiring") {
     return (
-      <Badge className="border-amber-400/20 bg-amber-400/10 text-amber-300">
+      <Badge className="border-warning/20 bg-warning/10 text-warning">
         <ShieldAlert className="size-3" />
         Warranty expiring
       </Badge>
     );
   }
   return (
-    <Badge className="border-rose-400/20 bg-rose-400/10 text-rose-300">
+    <Badge className="border-danger/20 bg-danger/10 text-danger">
       <ShieldX className="size-3" />
       Warranty expired
     </Badge>
@@ -39,7 +39,7 @@ export function ReturnBadge({ status }: { status?: ReturnStatus | null }) {
   if (!status || status === "none") return null;
   if (status === "open") {
     return (
-      <Badge className="border-sky-400/20 bg-sky-400/10 text-sky-300">
+      <Badge className="border-info/20 bg-info/10 text-info">
         <RotateCcw className="size-3" />
         Return open
       </Badge>
@@ -47,7 +47,7 @@ export function ReturnBadge({ status }: { status?: ReturnStatus | null }) {
   }
   if (status === "closing") {
     return (
-      <Badge className="border-rose-400/20 bg-rose-400/10 text-rose-300">
+      <Badge className="border-danger/20 bg-danger/10 text-danger">
         <RotateCcw className="size-3" />
         Return closing
       </Badge>
@@ -71,7 +71,7 @@ export function SourceBadge({ source }: { source?: string }) {
   }
   if (source === "demo") {
     return (
-      <Badge variant="outline" className="border-violet-400/20 bg-violet-400/10 text-violet-300">
+      <Badge variant="outline" className="border-violet/20 bg-violet/10 text-violet">
         <Sparkles className="size-3" />
         Demo data
       </Badge>
@@ -89,10 +89,10 @@ export function ConfidencePill({ value }: { value?: number }) {
   if (value == null) return null;
   const tone =
     value >= 90
-      ? "text-emerald-300 border-emerald-400/20 bg-emerald-400/10"
+      ? "text-success border-success/20 bg-success/10"
       : value >= 80
-        ? "text-amber-300 border-amber-400/20 bg-amber-400/10"
-        : "text-rose-300 border-rose-400/20 bg-rose-400/10";
+        ? "text-warning border-warning/20 bg-warning/10"
+        : "text-danger border-danger/20 bg-danger/10";
   return (
     <Badge variant="outline" className={tone}>
       AI {value}%

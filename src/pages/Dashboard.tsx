@@ -82,8 +82,8 @@ export default function Dashboard() {
             title: "Return window closing",
             message: n.message,
             actionLabel: "Start return",
-            accent: "border-rose-400/30 bg-rose-400/[0.06]",
-            chip: "bg-rose-400/10 text-rose-300 border-rose-400/25",
+            accent: "border-danger/30 bg-danger/[0.06]",
+            chip: "bg-danger/10 text-danger border-danger/25",
           };
         case "warranty":
           return {
@@ -94,8 +94,8 @@ export default function Dashboard() {
             message: n.message,
             actionLabel: "Review coverage",
             actionTo: "/warranties",
-            accent: "border-amber-400/30 bg-amber-400/[0.06]",
-            chip: "bg-amber-400/10 text-amber-300 border-amber-400/25",
+            accent: "border-warning/30 bg-warning/[0.06]",
+            chip: "bg-warning/10 text-warning border-warning/25",
           };
         case "price":
           return {
@@ -105,8 +105,8 @@ export default function Dashboard() {
             title: "Price dropped",
             message: n.message,
             actionLabel: "View item",
-            accent: "border-yellow-400/30 bg-yellow-400/[0.06]",
-            chip: "bg-yellow-400/10 text-yellow-300 border-yellow-400/25",
+            accent: "border-warning/30 bg-warning/[0.06]",
+            chip: "bg-warning/10 text-warning border-warning/25",
           };
         case "claim":
           return {
@@ -117,8 +117,8 @@ export default function Dashboard() {
             message: n.message,
             actionLabel: "Start a claim",
             actionTo: `/claims?purchase=${n.purchaseId}`,
-            accent: "border-emerald-400/30 bg-emerald-400/[0.06]",
-            chip: "bg-emerald-400/10 text-emerald-300 border-emerald-400/25",
+            accent: "border-success/30 bg-success/[0.06]",
+            chip: "bg-success/10 text-success border-success/25",
           };
         default:
           return null;
@@ -173,21 +173,21 @@ export default function Dashboard() {
             value: stats?.protectedValue,
             format: (n: number) => fmtMoney(n),
             sub: "Under active coverage",
-            tone: "text-emerald-400",
+            tone: "text-success",
           },
           {
             label: "Active Warranties",
             icon: ShieldAlert,
             value: stats?.activeWarranties,
             sub: "Coverage in force",
-            tone: "text-sky-400",
+            tone: "text-info",
           },
           {
             label: `Deadlines in ${stats?.monthLabel ?? "…"}`,
             icon: CalendarClock,
             value: stats?.deadlinesThisMonth,
             sub: "Returns & warranties due",
-            tone: "text-amber-400",
+            tone: "text-warning",
           },
           {
             label: "Potential Savings",
@@ -195,7 +195,7 @@ export default function Dashboard() {
             value: stats?.potentialSavings,
             format: (n: number) => fmtMoney(n),
             sub: "Price drops + open returns",
-            tone: "text-violet-400",
+            tone: "text-violet",
           },
         ].map((s, i) => {
           const Icon = s.icon;
@@ -249,7 +249,7 @@ export default function Dashboard() {
           </div>
         ) : attention.length === 0 ? (
           <div className="nexus-card mt-4 flex flex-col items-center gap-3 p-8 text-center">
-            <span className="flex size-12 items-center justify-center rounded-2xl bg-emerald-400/10 text-emerald-300">
+            <span className="flex size-12 items-center justify-center rounded-2xl bg-success/10 text-success">
               <ShieldCheck className="size-6" />
             </span>
             <div>

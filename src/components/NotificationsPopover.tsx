@@ -25,10 +25,10 @@ const KIND_META: Record<
   NotificationKind,
   { icon: typeof Bell; cls: string; ring: string }
 > = {
-  return: { icon: RotateCcw, cls: "text-rose-300 bg-rose-400/10", ring: "border-rose-400/25" },
-  warranty: { icon: ShieldAlert, cls: "text-amber-300 bg-amber-400/10", ring: "border-amber-400/25" },
-  price: { icon: TrendingDown, cls: "text-yellow-300 bg-yellow-400/10", ring: "border-yellow-400/25" },
-  claim: { icon: Sparkles, cls: "text-emerald-300 bg-emerald-400/10", ring: "border-emerald-400/25" },
+  return: { icon: RotateCcw, cls: "text-danger bg-danger/10", ring: "border-danger/25" },
+  warranty: { icon: ShieldAlert, cls: "text-warning bg-warning/10", ring: "border-warning/25" },
+  price: { icon: TrendingDown, cls: "text-warning bg-warning/10", ring: "border-warning/25" },
+  claim: { icon: Sparkles, cls: "text-success bg-success/10", ring: "border-success/25" },
   info: { icon: AlertTriangle, cls: "text-muted-foreground bg-muted", ring: "border-border/70" },
 };
 

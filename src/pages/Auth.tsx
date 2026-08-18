@@ -6,6 +6,7 @@ import {
   InputOTPSlot,
 } from "@/components/ui/input-otp";
 import { NexusMark } from "@/components/NexusMark";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 import { useAuth } from "@/hooks/use-auth";
 import { ArrowRight, Loader2, Lock, Mail, Sparkles, UserX } from "lucide-react";
@@ -107,6 +108,9 @@ function Auth({ redirectAfterAuth }: AuthProps = {}) {
         <NexusMark size={26} />
         Nexus OS
       </button>
+      <div className="absolute right-5 top-5">
+        <ThemeToggle />
+      </div>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}

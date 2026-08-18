@@ -108,9 +108,9 @@ export default function Warranties() {
               : 0;
             const tone =
               p.warrantyStatus === "expiring"
-                ? "border-amber-400/25"
+                ? "border-warning/25"
                 : p.warrantyStatus === "expired"
-                  ? "border-rose-400/20 opacity-80"
+                  ? "border-danger/20 opacity-80"
                   : "border-border/70";
             return (
               <motion.div
@@ -133,12 +133,12 @@ export default function Warranties() {
                     </div>
                   </div>
                   {p.warrantyStatus === "active" && (
-                    <ShieldCheck className="size-4 text-emerald-400" />
+                    <ShieldCheck className="size-4 text-success" />
                   )}
                   {p.warrantyStatus === "expiring" && (
-                    <CalendarClock className="size-4 text-amber-400" />
+                    <CalendarClock className="size-4 text-warning" />
                   )}
-                  {p.warrantyStatus === "expired" && <ShieldX className="size-4 text-rose-400" />}
+                  {p.warrantyStatus === "expired" && <ShieldX className="size-4 text-danger" />}
                 </div>
 
                 <div className="mt-4">
@@ -150,9 +150,9 @@ export default function Warranties() {
                     value={progress}
                     className={cn(
                       "mt-1.5 h-1.5",
-                      p.warrantyStatus === "expiring" && "bg-amber-400/20 [&>div]:bg-amber-400",
-                      p.warrantyStatus === "expired" && "bg-rose-400/20 [&>div]:bg-rose-400",
-                      p.warrantyStatus === "active" && "bg-emerald-400/20 [&>div]:bg-emerald-400",
+                      p.warrantyStatus === "expiring" && "bg-warning/20 [&>div]:bg-warning",
+                      p.warrantyStatus === "expired" && "bg-danger/20 [&>div]:bg-danger",
+                      p.warrantyStatus === "active" && "bg-success/20 [&>div]:bg-success",
                     )}
                   />
                 </div>
@@ -164,9 +164,9 @@ export default function Warranties() {
                       variant="outline"
                       className={cn(
                         "border",
-                        p.warrantyStatus === "active" && "border-emerald-400/20 bg-emerald-400/10 text-emerald-300",
-                        p.warrantyStatus === "expiring" && "border-amber-400/20 bg-amber-400/10 text-amber-300",
-                        p.warrantyStatus === "expired" && "border-rose-400/20 bg-rose-400/10 text-rose-300",
+                        p.warrantyStatus === "active" && "border-success/20 bg-success/10 text-success",
+                        p.warrantyStatus === "expiring" && "border-warning/20 bg-warning/10 text-warning",
+                        p.warrantyStatus === "expired" && "border-danger/20 bg-danger/10 text-danger",
                       )}
                     >
                       {days > 0 ? relativeDays(p.warrantyExpires) : "Expired"}

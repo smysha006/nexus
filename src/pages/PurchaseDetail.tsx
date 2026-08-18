@@ -297,7 +297,7 @@ export default function PurchaseDetail() {
         </div>
 
         {drop && (
-          <div className="mt-4 flex items-center gap-2 rounded-xl border border-amber-400/20 bg-amber-400/10 px-3.5 py-2.5 text-sm text-amber-300">
+          <div className="mt-4 flex items-center gap-2 rounded-xl border border-warning/20 bg-warning/10 px-3.5 py-2.5 text-sm text-warning">
             <TrendingDown className="size-4" />
             This item now sells for {fmtMoney(purchase.currentPrice!)} — {fmtMoney(purchase.price - purchase.currentPrice!)} below what you paid.
           </div>
@@ -335,20 +335,20 @@ export default function PurchaseDetail() {
                       className={cn(
                         "absolute -left-[35px] top-0 flex size-4 items-center justify-center rounded-full border-2",
                         m.state === "done"
-                          ? "border-emerald-400 bg-emerald-400/20"
+                          ? "border-success bg-success/20"
                           : m.state === "upcoming"
                             ? "border-primary bg-primary/20"
                             : "border-border bg-muted",
                       )}
                     >
-                      {m.state === "done" && <Check className="size-2.5 text-emerald-400" />}
+                      {m.state === "done" && <Check className="size-2.5 text-success" />}
                     </span>
                     <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
                       <div className="flex items-center gap-2.5">
                         <Icon
                           className={cn(
                             "size-4",
-                            m.state === "passed" ? "text-muted-foreground/50" : m.state === "upcoming" ? "text-primary" : "text-emerald-400",
+                            m.state === "passed" ? "text-muted-foreground/50" : m.state === "upcoming" ? "text-primary" : "text-success",
                           )}
                         />
                         <p className={cn("text-sm font-semibold", m.state === "passed" && "text-muted-foreground")}>
@@ -358,7 +358,7 @@ export default function PurchaseDetail() {
                           variant="outline"
                           className={cn(
                             "text-[10px]",
-                            m.state === "done" && "border-emerald-400/20 bg-emerald-400/10 text-emerald-300",
+                            m.state === "done" && "border-success/20 bg-success/10 text-success",
                             m.state === "upcoming" && "border-primary/25 bg-primary/10 text-primary",
                             m.state === "passed" && "border-border/70 text-muted-foreground",
                           )}
@@ -397,7 +397,7 @@ export default function PurchaseDetail() {
                 icon: ReceiptText,
                 file: `nexus-receipt-${purchase.name.toLowerCase().replace(/\s+/g, "-")}.txt`,
                 content: receiptDoc,
-                tone: "text-sky-300 bg-sky-400/10 border-sky-400/20",
+                tone: "text-info bg-info/10 border-info/20",
               },
               {
                 title: "Invoice",
@@ -405,7 +405,7 @@ export default function PurchaseDetail() {
                 icon: FileText,
                 file: `nexus-invoice-${purchase.name.toLowerCase().replace(/\s+/g, "-")}.txt`,
                 content: invoiceDoc,
-                tone: "text-violet-300 bg-violet-400/10 border-violet-400/20",
+                tone: "text-violet bg-violet/10 border-violet/20",
               },
               {
                 title: "Warranty card",
@@ -415,7 +415,7 @@ export default function PurchaseDetail() {
                 icon: ShieldCheck,
                 file: `nexus-warranty-${purchase.name.toLowerCase().replace(/\s+/g, "-")}.txt`,
                 content: warrantyDoc,
-                tone: "text-emerald-300 bg-emerald-400/10 border-emerald-400/20",
+                tone: "text-success bg-success/10 border-success/20",
               },
             ].map((doc) => {
               const DocIcon = doc.icon;

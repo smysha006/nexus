@@ -127,7 +127,7 @@ export default function Onboarding() {
 
           <div className="mt-8 flex items-center justify-between rounded-xl border border-border/70 bg-muted/30 px-4 py-3">
             <div className="flex items-center gap-2.5">
-              <span className="flex size-8 items-center justify-center rounded-lg bg-violet-400/10 text-violet-300">
+              <span className="flex size-8 items-center justify-center rounded-lg bg-violet/10 text-violet">
                 <Sparkles className="size-4" />
               </span>
               <div>
