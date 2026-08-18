@@ -1,7 +1,7 @@
 {
-  "name": "freebuff.com application",
-  "short_name": "freebuff.com",
-  "description": "freebuff.com application",
+  "name": "Nexus OS — Your purchases. Connected intelligently.",
+  "short_name": "Nexus OS",
+  "description": "Scan receipts, track warranties and returns, and protect everything you own.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

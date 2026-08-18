@@ -1,23 +1,36 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/logo.svg" />
   <link rel="manifest" href="/manifest.webmanifest" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0c0e17" />
+  <meta name="theme-color" content="#f4f5fa" />
+  <script>
+    // Restore the saved theme before first paint to avoid a flash of the wrong mode.
+    (function () {
+      try {
+        var stored = localStorage.getItem("theme");
+        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var isDark = stored === "dark" || ((!stored || stored === "system") && prefersDark);
+        document.documentElement.classList.toggle("dark", isDark);
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute("content", isDark ? "#0c0e17" : "#f4f5fa");
+      } catch (e) {}
+    })();
+  </script>
   <meta
     name="description"
-    content="NEXUS OS — Your purchases, connected intelligently. Scan receipts, track warranties, protect what you own."
+    content="Nexus OS — Your purchases, connected intelligently. Scan receipts, track warranties, protect what you own."
   />
-  <title>NEXUS OS — Your purchases. Connected intelligently.</title>
-  <script type="module" crossorigin src="/assets/index-D9Dh_yJf.js"></script>
+  <title>Nexus OS — Your purchases. Connected intelligently.</title>
+  <script type="module" crossorigin src="/assets/index-DGWmKjxd.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/react-vendor-BUoRsPM7.js">
   <link rel="modulepreload" crossorigin href="/assets/radix-ui-DLGLnuBp.js">
   <link rel="modulepreload" crossorigin href="/assets/charts-CMIX84wm.js">
   <link rel="modulepreload" crossorigin href="/assets/framer-motion-Br-Gs5-D.js">
-  <link rel="stylesheet" crossorigin href="/assets/index-DWArv_KC.css">
+  <link rel="stylesheet" crossorigin href="/assets/index-C16fnVFE.css">
 </head>
 
 
